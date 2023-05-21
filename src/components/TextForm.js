@@ -10,8 +10,18 @@ export default function TextForm(props) {
   const upperCase = () => {
     setText(text.toUpperCase());
   };
+
   const lowerCase = () => {
     setText(text.toLowerCase());
+  };
+
+  const copyClipboard = () => {
+    navigator.clipboard.writeText(text);
+    alert("Text copied");
+  };
+
+  const clearText = () => {
+    setText("");
   };
 
   let wordCount = () => {
@@ -25,14 +35,18 @@ export default function TextForm(props) {
     <>
       <div className=" container mb-3">
         <label
-          htmlFor="exampleFormControlTextarea1"
-          className="form-label fw-bolder"
+          htmlFor="textArea"
+          className={`form-label fw-bolder text-${
+            props.mode === "light" ? "dark" : "light"
+          }`}
         >
-          {props.heading}
+          Enter the text to analyze below
         </label>
         <textarea
-          className="form-control"
-          id="exampleFormControlTextarea1"
+          className={`form-control bg-${
+            props.mode === "light" ? "light" : "secondary"
+          } text-${props.mode === "light" ? "dark" : "light"}`}
+          id="textArea"
           placeholder="Enter the text"
           value={text}
           onChange={handleChange}
@@ -44,8 +58,18 @@ export default function TextForm(props) {
         <button className="btn btn-primary my-3 mx-1" onClick={lowerCase}>
           Convert to LowerCase
         </button>
+        <button className="btn btn-primary my-3 mx-1" onClick={copyClipboard}>
+          Copy to Clipboard
+        </button>
+        <button className="btn btn-danger my-3 mx-1" onClick={clearText}>
+          Clear text
+        </button>
       </div>
-      <div className="container">
+      <div
+        className={`container text-${
+          props.mode === "light" ? "dark" : "light"
+        }`}
+      >
         <h2>Text Summary</h2>
         <p>
           Number of words: <b>{wordCount()}</b>
