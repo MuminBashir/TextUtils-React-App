@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -34,12 +34,12 @@ export default function Navbar(props) {
           </ul>
           <form className="d-flex" role="search">
             <input
-              className="form-control me-2"
+              className="form-control me-2 bg-light"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
+            <button className="btn btn-light" type="submit">
               Search
             </button>
           </form>
@@ -51,4 +51,4 @@ export default function Navbar(props) {
 
 Navbar.propTypes = { title: PropTypes.string, aboutText: PropTypes.string };
 
-Navbar.defaultProps = {title: "Enter Title", aboutText: "Enter About"}
+Navbar.defaultProps = { title: "Enter Title", aboutText: "Enter About" };
