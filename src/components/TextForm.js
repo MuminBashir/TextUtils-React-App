@@ -9,19 +9,22 @@ export default function TextForm(props) {
 
   const upperCase = () => {
     setText(text.toUpperCase());
+    props.alert("Text converted to uppercase", "success");
   };
 
   const lowerCase = () => {
     setText(text.toLowerCase());
+    props.alert("Text converted to lowercase", "success");
   };
 
   const copyClipboard = () => {
     navigator.clipboard.writeText(text);
-    alert("Text copied");
+    props.alert("Text copied to clipboard", "success");
   };
 
   const clearText = () => {
     setText("");
+    props.alert("Text cleared", "danger");
   };
 
   let wordCount = () => {
