@@ -10,4 +10,4 @@ Introducing TextUtils, an innovative React web app designed to revolutionize the
 
 5) Copy to Clipboard: Simplify the process of sharing or reusing your text. TextUtils equips you with a convenient copy-to-clipboard feature, enabling you to effortlessly save and transport your text wherever you need it.
 
-6) Average Reading Time: Gauge the average time it takes to read your text. This feature provides you with valuable insights, especially when crafting content for presentations, articles, or blog posts.
+6) Average Reading Time: Gauge the average time it takes to read your text. This feature provides you with valuable insights, especially when crafting content for presentations, articles, or blog posts..
