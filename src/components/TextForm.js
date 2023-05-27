@@ -18,7 +18,10 @@ export default function TextForm(props) {
   };
 
   const copyClipboard = () => {
-    navigator.clipboard.writeText(text);
+    var txt = document.getElementById("textArea");
+    txt.select();
+    navigator.clipboard.writeText(txt.value);
+    document.getSelection().removeAllRanges();
     props.alert("Text copied to clipboard", "success");
   };
 
@@ -28,10 +31,7 @@ export default function TextForm(props) {
   };
 
   let wordCount = () => {
-    if (text === "") {
-      return 0;
-    }
-    return text.split(" ").length;
+    return text.split(" ").filter((e)=>{return e.length!==0}).length;
   };
 
   return (
@@ -55,16 +55,16 @@ export default function TextForm(props) {
           onChange={handleChange}
           rows="8"
         ></textarea>
-        <button className="btn btn-primary my-3 mx-1" onClick={upperCase}>
+        <button disabled={text===""} className="btn btn-primary mt-4 mx-1" onClick={upperCase}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary my-3 mx-1" onClick={lowerCase}>
+        <button disabled={text===""} className="btn btn-primary mt-4 mx-1" onClick={lowerCase}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary my-3 mx-1" onClick={copyClipboard}>
+        <button disabled={text===""} className="btn btn-primary mt-4 mx-1" onClick={copyClipboard}>
           Copy to Clipboard
         </button>
-        <button className="btn btn-danger my-3 mx-1" onClick={clearText}>
+        <button disabled={text===""} className="btn btn-danger mt-4 mx-1" onClick={clearText}>
           Clear text
         </button>
       </div>
