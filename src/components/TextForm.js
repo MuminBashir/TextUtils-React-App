@@ -31,7 +31,10 @@ export default function TextForm(props) {
   };
 
   let wordCount = () => {
-    return text.split(" ").filter((e)=>{return e.length!==0}).length;
+    // {/\s+/} this is a regular expression
+    return text.split(/\s+/).filter((e) => {
+      return e.length !== 0;
+    }).length;
   };
 
   return (
@@ -55,16 +58,32 @@ export default function TextForm(props) {
           onChange={handleChange}
           rows="8"
         ></textarea>
-        <button disabled={text===""} className="btn btn-primary mt-4 mx-1" onClick={upperCase}>
+        <button
+          disabled={text === ""}
+          className="btn btn-primary mt-4 mx-1"
+          onClick={upperCase}
+        >
           Convert to UpperCase
         </button>
-        <button disabled={text===""} className="btn btn-primary mt-4 mx-1" onClick={lowerCase}>
+        <button
+          disabled={text === ""}
+          className="btn btn-primary mt-4 mx-1"
+          onClick={lowerCase}
+        >
           Convert to LowerCase
         </button>
-        <button disabled={text===""} className="btn btn-primary mt-4 mx-1" onClick={copyClipboard}>
+        <button
+          disabled={text === ""}
+          className="btn btn-primary mt-4 mx-1"
+          onClick={copyClipboard}
+        >
           Copy to Clipboard
         </button>
-        <button disabled={text===""} className="btn btn-danger mt-4 mx-1" onClick={clearText}>
+        <button
+          disabled={text === ""}
+          className="btn btn-danger mt-4 mx-1"
+          onClick={clearText}
+        >
           Clear text
         </button>
       </div>
